@@ -8,7 +8,7 @@ public class Cuenta {
 	private String numero;
 	private String titular;
 	private double saldo;
-	public List<Movimiento> historialMov = new ArrayList<>();
+	private List<Movimiento> historialMov = new ArrayList<>();
 	
 	public Cuenta(double saldoInicial) {
 		saldo = saldoInicial;
@@ -24,7 +24,7 @@ public class Cuenta {
 
 	public void ingreso(double dinero) {
 		saldo = saldo + dinero;
-		historialMov.add(new Movimiento(dinero, Movimiento.Signo.INGRESO, "ingreso"));
+		historialMov.add(new Movimiento(dinero, Movimiento.Signo.INGRESO, "Ingreso de "+ dinero + " $"));
 	}
 
 	public void reintegro(double dinero) {
@@ -32,6 +32,6 @@ public class Cuenta {
 			return;
 		}
 		saldo = saldo - dinero;
-		historialMov.add(new Movimiento(dinero, Movimiento.Signo.REINTEGRO, "reintegro"));
+		historialMov.add(new Movimiento(dinero, Movimiento.Signo.REINTEGRO, "Reintegro de "+ dinero + " $"));
 	}
 }
